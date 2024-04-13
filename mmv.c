@@ -2,13 +2,9 @@
 allows to perform multiple mv calls at once.
 usage: mmv src1 dst1 src2 dst2...*/
 #include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
-#include <sys/types.h>
 #include <errno.h>
 #include <string.h>
-
-extern char** environ;
 
 int
 main(int argc, char** argv)
