@@ -6,6 +6,7 @@ usage: mmv src1 dst1 src2 dst2...*/
 #include <stdlib.h>
 #include <sys/types.h>
 #include <errno.h>
+#include <string.h>
 
 extern char** environ;
 
@@ -23,23 +24,13 @@ main(int argc, char** argv)
 	}
 	for(int i=1;i<argc-1;i+=2)
 	{
-		pid_t forkr=fork();
-		if(forkr==-1)
+		char* src=argv[i];
+		char* dst=argv[i+1];
+		if(rename(src,dst)==-1)
 		{
-			dprintf(2,"err: error while forking process.\n");
+			dprintf(2,"err: error during moving file %s to %s: %s.\n",src,dst,strerror(errno));
 			exit(1);
-		}
-		if(forkr==0)
-		{
-			char* src=argv[i];
-			char* dst=argv[i+1];
-			char* mvargv[]={"mv",src,dst,NULL};
-			if(execve("/usr/bin/mv",mvargv,environ)==-1)
-			{
-				dprintf(2,"err: error during /usr/bin/mv execution. error code: %d.\n",errno);
-				exit(1);
-			};
-		}
+		};
 	};
 	return 0;
 };
