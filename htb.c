@@ -1,5 +1,7 @@
 /*htb-html base.
 usage:htb [name] [-c|-j]
+-c add style tag
+-j add script tag
 build:cc -o htb htb.c*/
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,12 +11,12 @@ build:cc -o htb htb.c*/
 int
 main(int argc,char** argv)
 {
-	char hs[]="<!doctype html>\n<html lang=\"en\">\n<head>\n\t<meta charset=\"UTF-8\" >\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" >\n\t<link rel=\"shortcut icon\" href=\"#\">\n";
+	char hs[]="<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\" >\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" >\n<link rel=\"shortcut icon\" href=\"#\">\n";
 	char* c=NULL;
-	char he[]="\t<title></title>\n</head>\n";
-	char hens[]="\t<title>";
+	char he[]="<title></title>\n</head>\n";
+	char hens[]="<title>";
 	char hene[]="</title>\n</head>\n";
-	char bs[]="<body>\n\t<div id=\"rt\"></div>\n";
+	char bs[]="<body>\n";
 	char* j=NULL;
 	char be[]="</body>\n</html>";
 	int cf,jf;
@@ -38,7 +40,7 @@ main(int argc,char** argv)
 					case 'c':
 					{
 						cf=1;
-						char cs[]="\t<link rel=\"stylesheet\" href=\"./";
+						char cs[]="<link rel=\"stylesheet\" href=\"./";
 						char* cn=(n?n:"index");
 						char ce[]=".css\">\n";
 						clen=strlen(cs)+(n?nlen:strlen(cn))+strlen(ce);
@@ -51,7 +53,7 @@ main(int argc,char** argv)
 					case 'j':
 					{
 						jf=1;
-						char js[]="\t<script src=\"./";
+						char js[]="<script src=\"./";
 						char* jn=(n?n:"index");
 						char je[]=".js\"></script>\n";
 						jlen=strlen(js)+(n?nlen:strlen(jn))+strlen(je);
