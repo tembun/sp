@@ -6,7 +6,7 @@ main(){
 char buf[4096];//input buffer
 ssize_t rb;//input read byte count
 int i;//iterator for input buffer
-char* r;//resulting unescaped string
+char* r=0;//resulting unescaped string
 int j=0;//index of next result string character
 int d=1;//delta, used in uc label. 0-check current symbol, 1-check next symbol.
 char cc=0;//control character will be used for replacement
