@@ -1,11 +1,17 @@
 #include<stdio.h>
-int
-main(){
-char c=0;
+int main(int argc,char** argv){
+char c;
 char s[32][4]={"NUL","SOH","STX","ETX","EOT","ENQ",
 "ACK","BEL","BS ","TAB","LF ","VT ","FF ","CR ","SO ","SI ",
 "SLE","DC1","DC2","DC3","DC4","NAK","SYN","ETB",
 "CAN","EM ","SUB","ESC","FS ","GS ","RS ","US "};
+if(argc>1){
+int i;
+i=1;
+while(i<argc)dprintf(1,"%c:%d\n",argv[i][0],argv[i++][0]);
+return 0;
+}
+c=0;
 while(1){
 if(c<100)dprintf(1," ");
 if(c<10)dprintf(1," ");
