@@ -8,7 +8,11 @@ char s[32][4]={"NUL","SOH","STX","ETX","EOT","ENQ",
 if(argc>1){
 int i;
 i=1;
-while(i<argc)dprintf(1,"%c:%d\n",argv[i][0],argv[i++][0]);
+while(i<argc){
+if(argv[i][0]==92&&argv[i][1]==110){dprintf(1,"\\n:%d\n",'\n');++i;}
+else if(argv[i][0]==92&&argv[i][1]==116){dprintf(1,"\\t:%d\n",'\t');++i;}
+else dprintf(1,"%c:%d\n",argv[i][0],argv[i++][0]);
+};
 return 0;
 }
 c=0;
