@@ -2,13 +2,13 @@
 #include<unistd.h>
 #include<stdlib.h>
 int main(){
-char buf[4096];//stdin buffer
-ssize_t rb;//read bytes
-int l;//input string length (number)
-int ldc;//length digit count
-int j;//iterator for filling result string (initially copy of ldc variable)
-int z;//temporary variable for getting length digit count (copy of l variable)
-char* rs;//resulting string
+char buf[4096];/*stdin buffer.*/
+ssize_t rb;/*read bytes.*/
+int l;/*input string length (number).*/
+int ldc;/*length digit count.*/
+int j;/*iterator for filling result string (initially copy of ldc variable).*/
+int z;/*temporary variable for getting length digit count (copy of l variable).*/
+char* rs;/*resulting string.*/
 l=0;
 ldc=0;
 while((rb=read(0,&buf,4096))>0)l+=rb;
@@ -29,5 +29,5 @@ while((j--)>-1){
 rs[j]=(l%10)+48;
 l/=10;
 }
-write(1,rs,ldc+1);//write resulting string to stdout
+write(1,rs,ldc+1);/*write resulting string to stdout.*/
 return 0;}
