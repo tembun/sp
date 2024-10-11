@@ -39,8 +39,10 @@ while((rb=read(0,&buf,4096))>0){
 		}
 	}
 }
-write(2,"lin: no such line.\n",19);
-return 1;
+if(lin!=1){
+	write(2,"lin: no such line.\n",19);
+	return 1;
+}
 prnt:
 write(1,res,j);
 free(res);
