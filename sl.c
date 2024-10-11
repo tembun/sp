@@ -24,10 +24,10 @@ rs=malloc(ldc+1);
 if(!rs){write(2,"can't alloc\n",12);return 1;}
 /*fill resulting string from end to the begining*/
 j=ldc;
-rs[j]='\0';
+rs[j]=10;
 while((j--)>-1){
-rs[j]=(l%10)+'0';
+rs[j]=(l%10)+48;
 l/=10;
 }
-write(1,rs,ldc);//write resulting string to stdout
+write(1,rs,ldc+1);//write resulting string to stdout
 return 0;}
