@@ -1,3 +1,4 @@
+/*lin-obtain specified line from stdin.*/
 #include<unistd.h>
 #include<stdlib.h>
 int main(int argc,char** argv){
