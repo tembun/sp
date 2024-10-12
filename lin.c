@@ -103,5 +103,7 @@ if(!rng){
 succ:
 write(1,res,j);
 free(res);
+free(stas);
+free(fins);
 return 0;
 }
