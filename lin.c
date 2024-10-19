@@ -93,6 +93,10 @@ while((rb=read(0,&buf,4096))>0){
 		}
 	}
 }
+if(rb==-1){
+	write(2,"lin: read error occured.\n",25);
+	return 1;
+}
 if(!rng){
 	write(2,"lin: no such line.\n",19);
 	return 1;
