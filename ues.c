@@ -13,7 +13,7 @@ char cc=0;//control character will be used for replacement
 char cf=0;//carry flag. indicates if previous char was \
 /*read stdin into buffer*/
 while((rb=read(0,&buf,4096))>0){
-r=realloc(r,j+4096);
+r=realloc(r,j+rb);
 if(!r){write(2,"can't realloc r.\n",17);return 1;}
 i=0;//start iteration from the buffer begining
 while(i<rb){//loop over the buffer we've just read a portion of input in
