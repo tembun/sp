@@ -1,4 +1,4 @@
-/*sl-string length. reads string from stdin and sends its length in bytes to stdout*/
+/*len -- string length. reads string from stdin and sends its length in bytes to stdout*/
 #include<unistd.h>
 #include<stdlib.h>
 int main(){
