@@ -18,14 +18,14 @@ int i;
 struct stat st;
 
 if(argc < 2){
-	write(2,"fl: specify at least one name for a file to create a link for.\n",63);
+	write(2,"[fl]: specify at least one name for a file to create a link for.\n",65);
 	return 1;
 }
 
 i=1;
 while(i<argc){
 	if(!stat(argv[i],&st)){
-		dprintf(2,"fl: %s exists already.\n", argv[i]);
+		dprintf(2,"[fl]: %s exists already.\n", argv[i]);
 		goto next;
 	}
 
@@ -37,7 +37,7 @@ while(i<argc){
 	For file permission defines, see stat(2).
 	*/
 	if(open(argv[i],O_CREAT|O_WRONLY,DEFFILEMODE) == -1) {
-		dprintf(2,"fl: can't create %s.\n",argv[i]);
+		dprintf(2,"[fl]: can't create %s.\n",argv[i]);
 	}
 
 	next:
