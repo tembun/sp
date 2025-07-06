@@ -81,6 +81,13 @@ main()
 		}
 	}
 	
+	if (j + 1 > rl) {
+		if ((r = realloc(r, rl += 1)) == NULL)
+			err(1, "realloc()");
+	}
+	
+	r[j++] = '\n';
+	
 	if (write(STDOUT_FILENO, r, j) < 0)
 		err(1, "write()");
 	free(r);
